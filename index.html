@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style/style.css">
+  </head>
+  <body>
+    <div class="modal-container">
+      <div class="modal">
+        <div class="backdrop"></div>
+        <div class="box">
+          <div class="top-part">
+            <h2>
+              Your cart
+            </h2>
+            <div class="circle" id="closeModalBtn">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="item-image">
+                <img src="./images/1.png" alt="item">
+              </div>
+              <div class="item-detail">
+                <div class="item-model">
+                  Nike Model 1100s
+                </div>
+                <div class="item-price">
+                  2500.00$
+                </div>
+              </div>
+              <div class="item-counter">
+                <i class="fa-solid fa-plus"></i>
+                <span class="count">5</span>
+                <i class="fa-solid fa-minus"></i>
+              </div>
+              <i class="fa-solid fa-trash"></i>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <p class="total-price">
+              Total price: <span class="total-price-number">50021$</span>
+            </p>
+            <button class="confirm-btn">Confirm</button>
+            <button class="clear-btn">Clear cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="container">
+      <div class="content container">
+        <header>
+          <nav>
+            <div class="left-part logo">IranShop</div>
+            <div class="center-part">
+              <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li class="active">
+                    <a href="#">Shop</a>
+                </li>
+                <li>
+                    <a href="#">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+              </ul>
+            </div>
+            <div class="right-part">
+              <button class="circle" id="basketBtn">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="icon__badge">5</span>
+              </button>
+            </div>
+          </nav>
+          <div class="banner container">
+            <div class="left-part">
+              <a href="#">Home</a>
+              <span>/</span>
+              <a href="#" class="current">Products</a>
+            </div>
+            <div class="center-part">
+              <h1>Shop</h1>
+            </div>
+            <div class="right-part">
+              <select name="" id="">
+                <option value="">default sorting</option>
+              </select>
+            </div>
+          </div>
+        </header>
+        <div class="body-content">
+          <div class="vertical-text">
+            <span>--Scroll to down--</span>
+          </div>
+          <div class="cards container">
+            <div class="card">
+              <div class="card-actions">
+                <div class="circle">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div class="circle">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+              </div>
+              <img src="./images/1.png" alt="">
+              <div class="model">
+                  Nike Model 11005
+              </div>
+              <div class="price">
+                  2500.00$
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/2.png" alt="">
+                <div class="model">
+                  Moje 15-007
+                </div>
+                <div class="price">
+                    2120.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/3.png" alt="">
+                <div class="model">
+                    Nike Model 12788
+                </div>
+                <div class="price">
+                    1100.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/4.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/5.png" alt="">
+                <div class="model">
+                    Salamon a1542
+                </div>
+                <div class="price">
+                    3042.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/6.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/3.png" alt="">
+                <div class="model">
+                    Nike Model 12788
+                </div>
+                <div class="price">
+                    1100.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/4.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/5.png" alt="">
+                <div class="model">
+                    Salamon a1542
+                </div>
+                <div class="price">
+                    3042.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/6.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/3.png" alt="">
+                <div class="model">
+                    Nike Model 12788
+                </div>
+                <div class="price">
+                    1100.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/4.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/5.png" alt="">
+                <div class="model">
+                    Salamon a1542
+                </div>
+                <div class="price">
+                    3042.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/6.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/3.png" alt="">
+                <div class="model">
+                    Nike Model 12788
+                </div>
+                <div class="price">
+                    1100.00$
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/4.png" alt="">
+                <div class="model">
+                    Nike Model 11005
+                </div>
+                <div class="price">
+                    3000.00$
+                </div>
+            </div>
+            <div class="card">
+              <div class="card-actions">
+                <div class="circle">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div class="circle">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+              </div>
+              <img src="./images/1.png" alt="">
+              <div class="model">
+                  Nike Model 11005
+              </div>
+              <div class="price">
+                  2500.00$
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/2.png" alt="">
+                <div class="model">
+                  Moje 15-007
+                </div>
+                <div class="price">
+                    2120.00$
+                </div>
+            </div>
+            <div class="card">
+              <div class="card-actions">
+                <div class="circle">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div class="circle">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+              </div>
+              <img src="./images/1.png" alt="">
+              <div class="model">
+                  Nike Model 11005
+              </div>
+              <div class="price">
+                  2500.00$
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/2.png" alt="">
+                <div class="model">
+                  Moje 15-007
+                </div>
+                <div class="price">
+                    2120.00$
+                </div>
+            </div>
+            <div class="card">
+              <div class="card-actions">
+                <div class="circle">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div class="circle">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+              </div>
+              <img src="./images/1.png" alt="">
+              <div class="model">
+                  Nike Model 11005
+              </div>
+              <div class="price">
+                  2500.00$
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-actions">
+                  <div class="circle">
+                      <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                  <div class="circle">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                </div>
+                <img src="./images/2.png" alt="">
+                <div class="model">
+                  Moje 15-007
+                </div>
+                <div class="price">
+                    2120.00$
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
