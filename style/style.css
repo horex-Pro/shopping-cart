@@ -309,10 +309,10 @@ main .content .body-content .cards .card{
     border-radius: 30px;
     padding: 20px;
     margin-bottom: 50px;
-    transition: all .2s ease-in;
+    transition: all .15s ease-in;
 }
 main .content .body-content .cards .card:hover{
-    transform: scale(1.09);
+    transform: translateY(-20px);
 }
 main .content .body-content .cards .card .card-actions{
     width: 100%;

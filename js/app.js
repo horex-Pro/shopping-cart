@@ -4,6 +4,8 @@ const closeModalBtn = document.querySelector('#closeModalBtn');
 
 const cardsContainer = document.querySelector('.cards');
 
+let cart = [];
+
 basketBtn.addEventListener('click',(e) => modalContainer.style.display = 'flex');
 closeModalBtn.addEventListener('click',(e) => modalContainer.style.display = 'none');
 
@@ -11,6 +13,7 @@ closeModalBtn.addEventListener('click',(e) => modalContainer.style.display = 'no
 import { productsData } from "./addProduct.js";
 
 class Products {
+    // get products from products list array.
     getProduct(){
         return productsData;
     }
@@ -18,6 +21,7 @@ class Products {
 
 
 class Ui {
+    //show products in dom.
     static renderDataInDom(product){
         let result = '';
         product.forEach(item => {
@@ -27,7 +31,7 @@ class Ui {
                   <i class="fa-solid fa-bookmark"></i>
               </div>
               <div class="circle">
-                <i class="fa-solid fa-basket-shopping" data-id=${item.id}></i>
+                <i class="fa-solid fa-basket-shopping add-to-card-btn" data-id=${item.id}></i>
               </div>
             </div>
             <img src=${item.imageUrl} alt="">
@@ -42,12 +46,49 @@ class Ui {
             cardsContainer.innerHTML = result;
         });
     }
+    static getAddToCartBtn(){
+        const btns = document.querySelectorAll('.add-to-card-btn');
+        const btnsList = [...btns]
+        btnsList.forEach(btn =>{
+            const id = btn.dataset.id;
+            const isItemInCart = cart.find((i)=> i.id === id)
+            if(isItemInCart){
+                btn.style.color = "#FA8907";
+                btn.disabled = true;
+            }
+
+            btn.addEventListener('click',(e)=>{
+
+                const addedProduct = Storage.getProduct(id);
+                btn.style.color = "#FA8907";
+                btn.disabled = true;
+
+                // add cart products
+
+                
+                cart = [...cart,{...addedProduct , quantity:1}];
+
+                Storage.addProductToCart(cart);
+            })
+        })
+    }
 }
 
 class Storage{
-    saveProductInStorage(products){
-        localStorage.setItem('products', JSON.stringify(products))
-    }
+    //save data in local storage.
+    saveProductInStorage(product){
+        localStorage.setItem('products', JSON.stringify(product))
+    };
+
+    static getProduct(id){
+        const _products = JSON.parse(localStorage.getItem('products'));
+        return _products.find((p)=> p.id === parseInt(id));
+    };
+
+    static addProductToCart(product){
+        localStorage.setItem('cart', JSON.stringify(product));
+    };
+    
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -57,4 +98,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     saveData.saveProductInStorage(productsData);
     Ui.renderDataInDom(productsData);
+    Ui.getAddToCartBtn();
 })
