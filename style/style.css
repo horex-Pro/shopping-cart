@@ -294,6 +294,7 @@ main .content .body-content .cards{
     flex-wrap: wrap;
     overflow-y: scroll;
     overflow-x: hidden;
+    gap: 10px;
 }
 main .content .body-content .cards::-webkit-scrollbar{
     display: none;
