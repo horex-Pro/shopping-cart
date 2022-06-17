@@ -2,6 +2,9 @@ const modalContainer = document.querySelector('.modal-container');
 const basketBtn = document.querySelector('#basketBtn');
 const closeModalBtn = document.querySelector('#closeModalBtn');
 
+const totalPricePlaceholder = document.querySelector('.total-price-number');
+const numberOfproductInCardBadge = document.querySelector('.icon__badge');
+
 const cardsContainer = document.querySelector('.cards');
 
 let cart = [];
@@ -59,18 +62,61 @@ class Ui {
 
             btn.addEventListener('click',(e)=>{
 
-                const addedProduct = Storage.getProduct(id);
+                const addedProduct = {...Storage.getProduct(id),quantity:1};
                 btn.style.color = "#FA8907";
                 btn.disabled = true;
 
                 // add cart products
 
                 
-                cart = [...cart,{...addedProduct , quantity:1}];
+                cart = [...cart , addedProduct];
 
                 Storage.addProductToCart(cart);
+
+                this.totalPriceAndNumberOfProductAdded(cart);
+                this.addCartItem(addedProduct);
+
+                // add item to cart
+
             })
         })
+    }
+    static totalPriceAndNumberOfProductAdded(cart){
+        let totalPrice = 0;
+        let numberOfProductInCard = 0;
+        totalPrice = cart.reduce((acc , curr)=>{
+            numberOfProductInCard += curr.quantity;
+            return acc + curr.quantity * curr.price;
+        },0);
+        
+        totalPricePlaceholder.innerHTML = `$${totalPrice.toFixed(2)}`
+        numberOfproductInCardBadge.innerText = numberOfProductInCard;
+    }
+
+    static addCartItem(item){
+        let div = document.createElement('div');
+        div.classList.add('item')
+        div.innerHTML = `
+              <div class="item-image">
+                <img src=${item.imageUrl} alt="item">
+              </div>
+              <div class="item-detail">
+                <div class="item-model">
+                  ${item.name}
+                </div>
+                <div class="item-price">
+                  ${item.price}
+                </div>
+              </div>
+              <div class="item-counter">
+                <i class="fa-solid fa-plus"></i>
+                <span class="count">${item.quantity}</span>
+                <i class="fa-solid fa-minus"></i>
+              </div>
+              <i class="fa-solid fa-trash"></i>
+        `
+
+        document.querySelector('.items').appendChild(div);
     }
 }
 
