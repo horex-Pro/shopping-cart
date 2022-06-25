@@ -1,11 +1,14 @@
 const modalContainer = document.querySelector('.modal-container');
 const basketBtn = document.querySelector('#basketBtn');
 const closeModalBtn = document.querySelector('#closeModalBtn');
+const clearCartBtn = document.querySelector('.clear-btn');
 
 const totalPricePlaceholder = document.querySelector('.total-price-number');
 const numberOfproductInCardBadge = document.querySelector('.icon__badge');
 
 const cardsContainer = document.querySelector('.cards');
+
+const cardProductsContainer = document.querySelector('.items');
 
 let cart = [];
 
@@ -109,14 +112,47 @@ class Ui {
                 </div>
               </div>
               <div class="item-counter">
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-plus" data-id=${item.id}></i>
                 <span class="count">${item.quantity}</span>
-                <i class="fa-solid fa-minus"></i>
+                <i class="fa-solid fa-minus" data-id=${item.id}></i>
               </div>
-              <i class="fa-solid fa-trash"></i>
+              <i class="fa-solid fa-trash" data-id=${item.id}></i>
         `
 
-        document.querySelector('.items').appendChild(div);
+        cardProductsContainer.appendChild(div);
+    }
+    static setupUi(){
+        cart = Storage.getCart() || [];
+
+        const products = new Products();
+        const productsData = products.getProduct();
+        
+        cart.forEach((cartItem)=>{
+            
+            let id = cartItem.id;
+            
+            const addedItemToCart = document.getElementById('1');
+
+            console.log(addedItemToCart)
+        });
+
+        this.totalPriceAndNumberOfProductAdded(cart);
+    }
+    static cartLogic(){
+        clearCartBtn.addEventListener('click',()=> this.clearCart());
+    }
+    static clearCart(){
+        cardProductsContainer.innerHTML='';
+        modalContainer.style.display = 'none';
+        numberOfproductInCardBadge.innerText = 0;
+        localStorage.removeItem('cart');
+        
+        const btns = document.querySelectorAll('.add-to-card-btn');
+        const addToCartBtns = [...btns];
+        addToCartBtns.forEach(btn => btn.style.color = '#000');
+
+        cart = [];
+        
     }
 }
 
@@ -134,10 +170,17 @@ class Storage{
     static addProductToCart(product){
         localStorage.setItem('cart', JSON.stringify(product));
     };
+
+    static getCart(){
+        return JSON.parse(localStorage.getItem('cart'));
+    }
     
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
+    // set up app
+    Ui.setupUi();
+    // get cart
     const products = new Products();
     const productsData = products.getProduct();
     const saveData = new Storage();
@@ -145,4 +188,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
     saveData.saveProductInStorage(productsData);
     Ui.renderDataInDom(productsData);
     Ui.getAddToCartBtn();
+    Ui.cartLogic()
 })
