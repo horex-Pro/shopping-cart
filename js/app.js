@@ -127,16 +127,10 @@ class Ui {
         const products = new Products();
         const productsData = products.getProduct();
         
-        cart.forEach((cartItem)=>{
-            
-            let id = cartItem.id;
-            
-            const addedItemToCart = document.getElementById('1');
-
-            console.log(addedItemToCart)
-        });
 
         this.totalPriceAndNumberOfProductAdded(cart);
+
+        cart.forEach((item)=> this.addCartItem(item));
     }
     static cartLogic(){
         clearCartBtn.addEventListener('click',()=> this.clearCart());
